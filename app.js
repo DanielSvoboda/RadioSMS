@@ -1108,3 +1108,25 @@ clearButton.addEventListener("click", clearMessages);
    INICIALIZAÇÃO
 ====================================================== */
 window.addEventListener("beforeunload", stopMicrophone);
+/* ======================================================
+   Service Worker
+====================================================== */
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker.register("./sw.js")
+            .then(() => {
+                console.log(
+                    "[PWA] Service Worker registrado."
+                );
+            })
+            .catch(error => {
+                console.error(
+                    "[PWA] Erro:",
+                    error
+                );
+            });
+
+    });
+}

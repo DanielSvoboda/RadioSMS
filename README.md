@@ -29,19 +29,19 @@ A mensagem é convertida em bits e modulada utilizando **FSK (Frequency Shift Ke
 
 Permite configurar os parâmetros de comunicação e ativar ou desativar a criptografia.
 
-![Tela de configuração](images/configuracao.jpeg)
+<img src="images/configuracao.jpeg" alt="Tela de configuração" width="200">
 
 ### 📤 Transmissão
 
 Digite a mensagem e inicie a codificação e transmissão do sinal.
 
-![Tela de transmissão](images/transmissao.jpeg)
+<img src="images/transmissao.jpeg" alt="Tela de transmissão" width="200">
 
 ### 🎤 Recepção
 
 O microfone captura o sinal FSK e realiza a demodulação da mensagem.
 
-![Tela de recepção](images/recepcao.jpeg)
+<img src="images/recepcao.jpeg" alt="Tela de recepção" width="200">
 
 ---
 

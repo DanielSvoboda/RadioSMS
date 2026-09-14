@@ -4,7 +4,9 @@ const FILES = [
     "./",
     "./index.html",
     "./style.css",
-    "./app.js"
+    "./app.js",
+    "./manifest.json",
+	"./icon-512.png"
 ];
 
 
@@ -15,6 +17,17 @@ self.addEventListener("install", event => {
         caches.open(CACHE_NAME)
             .then(cache => cache.addAll(FILES))
 
+    );
+
+    self.skipWaiting();
+
+});
+
+
+self.addEventListener("activate", event => {
+
+    event.waitUntil(
+        self.clients.claim()
     );
 
 });

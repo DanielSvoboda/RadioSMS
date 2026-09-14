@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#111827">
+    <link rel="icon" href="data:image/svg+xml, <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22> <text y=%22.9em%22 font-size=%2290%22>📻</text> </svg>">
+    <title>Radio SMS</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📻 Radio SMS</h1>
+        <p>Envie e receba mensagens de texto usando rádio</p>
+      </header>
+      <!-- =========================================
+         CONTEÚDO DAS ABAS
+    ========================================== -->
+      <main class="tab-content">
+        <!-- =====================================
+             CONFIG
+        ====================================== -->
+        <section id="tab-config" class="tab-panel active">
+          <section class="card">
+            <h2>🔐 Configuração</h2>
+            <label for="password">Senha</label>
+            <input id="password" type="password" autocomplete="off" placeholder="Digite a senha compartilhada">
+            <p class="hint"> A mesma senha deve ser usada nos dois aparelhos. </p>
+            <label class="toggle">
+              <input id="encryptionToggle" type="checkbox">
+              <span class="toggle-slider"></span>
+              <span id="encryptionToggleText" class="toggle-text"> 🔓 Criptografia desativada </span>
+            </label>
+            <p id="encryptionHint" class="hint"> As mensagens serão criptografadas com AES-256-GCM. </p>
+          </section>
+          <!-- =================================
+                 CONFIGURAÇÃO FSK
+            ================================== -->
+          <section class="card">
+            <h2>📡 Modulação FSK</h2>
+            <label for="frequency0"> Frequency 0 (Hz) </label>
+            <input id="frequency0" type="number" min="1" step="1">
+            <label for="frequency1"> Frequency 1 (Hz) </label>
+            <input id="frequency1" type="number" min="1" step="1">
+            <label for="startFrequency"> Start Frequency (Hz) </label>
+            <input id="startFrequency" type="number" min="1" step="1">
+            <label for="endFrequency"> End Frequency (Hz) </label>
+            <input id="endFrequency" type="number" min="1" step="1">
+            <label for="bitDuration"> Bit Duration (ms) </label>
+            <input id="bitDuration" type="number" min="1" step="1">
+            <button id="resetModemButton" class="secondary"> Restaurar padrões </button>
+            <p class="hint"> Esses parâmetros devem ser iguais nos dispositivos transmissor e receptor. </p>
+          </section>
+        </section>
+        <!-- =====================================
+             ENVIAR
+        ====================================== -->
+        <section id="tab-send" class="tab-panel">
+          <section class="card">
+            <h2>📤 Enviar</h2>
+            <textarea id="message" rows="5" maxlength="2000" placeholder="Digite a mensagem..."></textarea>
+            <button id="sendButton"> 🔊 Codificar e transmitir </button>
+            <div id="sendStatus" class="status"> Pronto. </div>
+          </section>
+        </section>
+        <!-- =====================================
+             RECEBER
+        ====================================== -->
+        <section id="tab-receive" class="tab-panel">
+          <section class="card">
+            <h2>🎤 Recepção</h2>
+            <button id="startButton" class="secondary"> 🎤 Iniciar microfone </button>
+            <button id="stopButton" class="danger" disabled> ⛔ Parar microfone </button>
+            <div class="meter-container">
+              <div id="meter"></div>
+            </div>
+            <div id="receiveStatus" class="status"> Microfone parado. </div>
+          </section>
+          <section class="card">
+            <h2>📨 Mensagens recebidas</h2>
+            <div id="messages" class="messages">
+              <div class="empty"> Nenhuma mensagem recebida. </div>
+            </div>
+            <button id="clearButton" class="secondary"> Limpar mensagens </button>
+          </section>
+        </section>
+      </main>
+      <!-- =========================================
+         NAVEGAÇÃO INFERIOR
+    ========================================== -->
+      <nav class="bottom-tabs">
+        <button class="tab-button active" data-tab="tab-config"> ⚙️ <span>Configurações</span>
+        </button>
+        <button class="tab-button" data-tab="tab-send"> 🔊 <span>Enviar</span>
+        </button>
+        <button class="tab-button" data-tab="tab-receive"> 🎤 <span>Receber</span>
+        </button>
+      </nav>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
